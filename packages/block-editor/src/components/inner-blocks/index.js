@@ -76,7 +76,7 @@ function UncontrolledInnerBlocks( props ) {
 		},
 		[ clientId ]
 	);
-	const enableClickThrough = isNavMode && isSmallScreen;
+	const enableClickThrough = isNavMode || isSmallScreen;
 
 	useNestedSettingsUpdate(
 		clientId,
