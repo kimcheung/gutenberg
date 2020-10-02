@@ -32,6 +32,7 @@ import { createBlock } from '@wordpress/blocks';
  */
 import { createUpgradedEmbedBlock } from '../embed/util';
 import VideoCommonSettings from './edit-common-settings';
+import TracksEditor from './tracks-editor';
 
 const ALLOWED_MEDIA_TYPES = [ 'video' ];
 const VIDEO_POSTER_ALLOWED_MEDIA_TYPES = [ 'image' ];
@@ -48,7 +49,7 @@ function VideoEdit( {
 	const instanceId = useInstanceId( VideoEdit );
 	const videoPlayer = useRef();
 	const posterImageButton = useRef();
-	const { id, caption, controls, poster, src } = attributes;
+	const { id, caption, controls, poster, src, tracks } = attributes;
 	const mediaUpload = useSelect(
 		( select ) => select( 'core/block-editor' ).getSettings().mediaUpload
 	);
@@ -145,6 +146,12 @@ function VideoEdit( {
 	return (
 		<>
 			<BlockControls>
+				<TracksEditor
+					tracks={ tracks }
+					onChange={ ( newTracks ) => {
+						setAttributes( { tracks: newTracks } );
+					} }
+				/>
 				<MediaReplaceFlow
 					mediaId={ id }
 					mediaURL={ src }

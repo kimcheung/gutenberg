@@ -24,3 +24,32 @@
 		@include caption-style();
 	}
 }
+
+.block-library-video-tracks-editor > .components-popover__content {
+	width: 360px;
+}
+
+.block-library-video-tracks-editor__tracks-informative-message {
+	margin-left: $grid-unit-10;
+}
+
+.block-library-video-tracks-editor__track-list-track {
+	display: flex;
+	place-content: space-between;
+	align-items: baseline;
+}
+
+.block-library-video-tracks-editor__single-track-editor-label-language {
+	display: flex;
+	margin-top: $grid-unit-20;
+	& > .components-base-control {
+		width: 50%;
+	}
+	& > .components-base-control:first-child {
+		margin-right: $grid-unit-20;
+	}
+}
+
+.block-library-video-tracks-editor__single-track-editor-kind-select {
+	max-width: 240px;
+}
